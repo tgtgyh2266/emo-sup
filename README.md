@@ -51,8 +51,10 @@ sourde ld_lib.sh
 ## Run!
 
 ```
-python InteractionServer.py
+python InteractionServer.py (2 for grpc version, 3 for web.py version)
 ```
 ## Demo
 
 https://hackmd.io/E236ZMXbTiCzKc5ErZ9VjA?view
+
+----
