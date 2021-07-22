@@ -5,7 +5,7 @@
 ## Clone this repo & initialize
 
 ```sh
-git clone https://gitlab.com/stvhuang/emo-sup.git
+https://gitlab.com/stvhuang/emo-sup.git (the original repo, contains folders that wasn't uploaded due to file size limit)
 cd emo-sup
 git submodule update --init --recursive
 ```
@@ -51,7 +51,8 @@ sourde ld_lib.sh
 ## Run!
 
 ```
-python InteractionServer.py (2 for grpc version, 3 for web.py version)
+python InteractionServer.py (InteractionServer_2 for grpc version, InteractionServer_3 for web.py version)
+python client_2.py to demo on pc
 ```
 ## Demo
 
