@@ -51,8 +51,11 @@ sourde ld_lib.sh
 ## Run!
 
 ```
-python InteractionServer.py (InteractionServer_2 for grpc version, InteractionServer_3 for web.py version)
-python client_2.py to demo on pc
+python InteractionServer_2.py for grpc version 
+python InteractionServer_3.py 9111 for web.py version
+python client_2.py to demo grpc version on pc
+python client_3.py to demo web.py version on pc
+
 ```
 ## Demo
 
