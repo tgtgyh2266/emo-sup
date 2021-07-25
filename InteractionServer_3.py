@@ -8,21 +8,16 @@ import socket
 import time
 import web
 from InteractionManagement import InteractionManagement
+import json
 
 class web_server_template:  ##宣告一個class,在下文的web.application實例化時，會根據定義將對應的url連接到這個class
     def __init__(self):  ##初始化類別
         print('initial in {}'.format(time.time()))
     def POST(self):  ##當server收到一個指向這個class URL的POST請求，會觸發class中命名為POST的函數，GET請求同理
-        # recive = json.loads(str(web.data(),encoding='utf-8'))  ##使用json.loads將json格式讀取為字典
-        # print('[Message] Post message recive:{}'.format(recive))
-        # result = True
-        # msg = 'Server recive'
-
-        # return_json = {'results':result,'return_message':msg}
-        # return_data = json.dumps(return_json,sort_keys=True,separators=(',',':'),ensure_ascii=False) ##打包回傳信息為json
-
-        received_data = web.data()
-        received_data = received_data.decode()
+        recive = json.loads(str(web.data(),encoding='utf-8'))  ##使用json.loads將json格式讀取為字典
+        print('[Message] Post message recive:{}'.format(recive))
+        result = True
+        received_data = recive["msg"]
 
         global query_id_interaction_signal
         global first_question_signal
@@ -68,7 +63,11 @@ class web_server_template:  ##宣告一個class,在下文的web.application實�
         else:
             passing_information = "empty"
 
-        return passing_information  ##回傳
+
+        return_json = {'results':result,'return_message':passing_information}
+        return_data = json.dumps(return_json,sort_keys=True,separators=(',',':'),ensure_ascii=False) ##打包回傳信息為json
+
+        return return_data  ##回傳
 
     def GET(self):
         return 'Hello World!'
@@ -128,11 +127,3 @@ if __name__ == '__main__':
     URL_facereg_main = ("/","web_server_template")  ##宣告URL與class的連接
     app = web.application(URL_facereg_main,locals())  ##初始化web application，默認地址為127.0.0.1:8080，locals()代表web.py會在當前文件內尋找url對應的class
     app.run()  ##運行web application
-
-    # while not robot.is_robot_connected:
-    #     time.sleep(1)
-    # print("connected!")
-
-    # while True:
-    #     time.sleep(1)
-
