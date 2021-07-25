@@ -1,0 +1,6 @@
+[submodule "bayonet"]
+	path = bayonet
+	url = https://github.com/mpatacchiola/bayonet.git
+[submodule "pyltp"]
+	path = pyltp
+	url = https://github.com/HIT-SCIR/pyltp.git
